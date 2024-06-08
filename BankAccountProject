@@ -1,0 +1,75 @@
+package javaproject;
+
+public class bankaccount
+{
+private String accountNumber;
+private double balance;
+// constructor to initialize the account number and balance
+public bankaccount(String accountNumber, Double balance)
+{
+	this.accountNumber=accountNumber;
+	this.balance=balance;
+}
+// Getter method to retrieve the balance
+public String getAccountNumber()
+{
+	return accountNumber;
+}
+//Setter method to retrieve the amount
+public void setAccountNumber(String accountNumber)
+{
+	this.accountNumber=accountNumber;
+}
+//Getter method to retrieve the balance
+public double getbalance()
+{
+	return balance;
+}
+//Setter method to retrieve the amount number
+public void setBalance(double balance)
+{
+	this.balance=balance;
+}
+//Method to deposit money into the amount
+public void deposit(double amount)
+{
+	if (amount>0)
+	{
+		balance +=amount;
+		System.out.println("deposited: $"+amount);
+	}
+	else
+	{
+		System.out.println("invalid amount for deposit");
+	}
+}
+//Method to deposit money into the amount
+public void withdraw(double amount)
+{
+	if(amount> 0 && amount<=balance)
+	{
+		balance -=amount;
+		System.out.println("withdraw: $"+ amount);
+	}
+	else
+	{
+		System.out.println("invalid amount for withdraw or insufficient balance");
+	}
+}
+	public static void main(String[] args) {
+		//Creating a bank account object using encapsulation
+		bankaccount account= new bankaccount("BOIof983409",(double) 1000);
+		
+		// Accessing private variable through public method
+		System.out.println("Account Number:"+ account.getAccountNumber());
+		System.out.println("Balance : $"+ account.getbalance());
+		
+		//Depositing and withdrawing money using public method
+		account.deposit(400);
+		System.out.println("Balance after deposit: $"+ account.getbalance());
+		
+		account.withdraw(200);
+		System.out.println("balance after withdraw: $"+ account.getbalance());
+	
+	}
+}
