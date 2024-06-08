@@ -1,0 +1,32 @@
+package Javaproject;
+
+import java.util.Random;
+
+public class LightningThread extends Thread
+{
+private final String FlashName;
+public LightningThread(String flashName, String FlashName) {
+	this.FlashName = FlashName;
+	
+}
+ public void run() {
+	 try {
+		 while(true) {
+			 System.out.println("Lightning Flash :"+FlashName);
+			 Thread.sleep(new Random().nextInt(3000));
+		 }
+	 } catch(Exception e) {
+		 System.out.println(e);
+	 }
+ }
+ public class lighningseries{
+	 public static void main(String[] args) {
+		 for(int i=1;i<=5;i++) {
+			 String flashName="Flash"+i;
+			 LightningThread l1=new LightningThread(flashName, flashName);
+			 l1.start();
+		 }
+	 }
+ }
+
+}
